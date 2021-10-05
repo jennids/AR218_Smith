@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Platform1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 655.981, 10 )
 
 [node name="Level1" type="Node2D"]
 
@@ -27,3 +30,18 @@ scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 111.387, 177.212 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+limit_bottom = 720
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 110.715, 475.102 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Area2D" to="Player" method="_on_Area2D_area_entered"]
