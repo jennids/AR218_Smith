@@ -1,35 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Platform1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://BG/bg1.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Collectible.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ScoreLabel.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Platform2.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 655.981, 10 )
 
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 3
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
 [node name="Level1" type="Node2D"]
 
-[node name="Platform1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 506.08, 245.937 )
-scale = Vector2( 2, 2 )
-
-[node name="Platform5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 378.657, 371.473 )
-scale = Vector2( 2, 2 )
-
-[node name="Platform4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 252.178, 371.473 )
-scale = Vector2( 2, 2 )
-
-[node name="Platform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 124.755, 371.473 )
-scale = Vector2( 2, 2 )
-
-[node name="Platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 505.136, 371.473 )
-scale = Vector2( 2, 2 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 111.387, 177.212 )
+collision_mask = 31
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -38,10 +34,110 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="fallzone" type="Area2D" parent="."]
+collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 110.715, 475.102 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
+position = Vector2( 636.027, 645.716 )
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="Area2D" to="Player" method="_on_Area2D_area_entered"]
+[node name="obstacles" type="Node2D" parent="."]
+
+[node name="Platform1" parent="obstacles" instance=ExtResource( 1 )]
+position = Vector2( 84.0897, 546.583 )
+collision_mask = 2
+
+[node name="Platform2" parent="obstacles" instance=ExtResource( 1 )]
+position = Vector2( 309.45, 548.264 )
+
+[node name="Platform3" parent="obstacles" instance=ExtResource( 1 )]
+position = Vector2( 546.583, 519.674 )
+
+[node name="Platform5" parent="obstacles" instance=ExtResource( 8 )]
+position = Vector2( 1066.71, 505.186 )
+
+[node name="Platform4" parent="obstacles" instance=ExtResource( 1 )]
+position = Vector2( 785.397, 489.402 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 1024, 1024 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1024, 1024 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+material = SubResource( 2 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="HUD"]
+margin_left = 628.0
+margin_top = 34.0
+margin_right = 768.0
+margin_bottom = 74.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+margin_left = 655.271
+margin_top = 47.0905
+margin_right = 748.271
+margin_bottom = 61.0905
+text = "Hats Collected"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collectibles" type="Node2D" parent="."]
+
+[node name="Collectible" parent="collectibles" instance=ExtResource( 4 )]
+position = Vector2( 154.841, 369.751 )
+
+[node name="Collectible2" parent="collectibles" instance=ExtResource( 4 )]
+position = Vector2( 379.094, 375.09 )
+
+[node name="Collectible3" parent="collectibles" instance=ExtResource( 4 )]
+position = Vector2( 607.352, 341.719 )
+
+[node name="Collectible4" parent="collectibles" instance=ExtResource( 4 )]
+position = Vector2( 856.967, 319.027 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 7 )]
+modulate = Color( 0.556863, 0.301961, 0.301961, 1 )
+position = Vector2( 1040.7, 264.14 )
+collision_mask = 11
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 282.557, 293.669 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 501.619, 257.159 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 698.456, 274.62 )
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1152.45, 279.383 )
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 934.979, 268.271 )
+
+[connection signal="area_entered" from="fallzone" to="Player" method="_on_Area2D_area_entered"]
+[connection signal="coin_collected" from="collectibles/Collectible" to="HUD/ScoreLabel" method="_on_Collectible_coin_collected"]
+[connection signal="coin_collected" from="collectibles/Collectible2" to="HUD/ScoreLabel" method="_on_Collectible2_coin_collected"]
+[connection signal="coin_collected" from="collectibles/Collectible3" to="HUD/ScoreLabel" method="_on_Collectible3_coin_collected"]
+[connection signal="coin_collected" from="collectibles/Collectible4" to="HUD/ScoreLabel" method="_on_Collectible4_coin_collected"]

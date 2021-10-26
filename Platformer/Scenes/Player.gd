@@ -4,6 +4,7 @@ var velocity := Vector2(0,0)
 export var speed := 180
 export var jump := -900
 export var climb = 100
+export var energy := 10
 const GRAVITY := 35
 
 func _physics_process(delta):
@@ -39,4 +40,12 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, 0,0.1)
 func _on_Area2D_area_entered(area):
 	get_tree().change_scene("res://Scenes/Level1.tscn")
+	pass # Replace with function body.
+
+
+func _on_Collectible2_coin_collected():
+	pass # Replace with function body.
+
+
+func _on_Collectible3_coin_collected():
 	pass # Replace with function body.
