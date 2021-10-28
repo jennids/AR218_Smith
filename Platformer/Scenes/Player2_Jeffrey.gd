@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 var velocity := Vector2(0,0)
-export var speed := 100
-export var jump := -600
+export var speed := 150
+export var jump := -900
 export var climb = 100
 export var energy := 10
 const GRAVITY := 35
@@ -51,7 +51,7 @@ func _physics_process(delta):
 
 	velocity.y += GRAVITY
 
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP,true)
 
 	velocity.x = lerp(velocity.x, 0,0.1)
 	
@@ -79,4 +79,5 @@ func _on_AnimatedSprite_animation_finished():
 func _on_AnimatedSprite_frame_changed():
 	if $AnimatedSprite.animation == "jump" and $AnimatedSprite.frame == 5:
 		velocity.y += jump
+		#print(3)
 	
