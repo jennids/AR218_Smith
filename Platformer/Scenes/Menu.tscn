@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fonts/OpenSansCondensed-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/OpenSansCondensed-Light.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Enemy/Enemy.png" type="Texture" id=3]
+[ext_resource path="res://Enemy/EnemySprites/idle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/feather.png" type="Texture" id=4]
 [ext_resource path="res://Player2/idle.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Menu.gd" type="Script" id=6]
@@ -38,22 +38,11 @@ margin_top = -19.0273
 margin_right = 1280.0
 margin_bottom = 140.973
 custom_fonts/font = SubResource( 1 )
-text = "For the Birds
+text = "Walk with the Birds
 
 by Jennifer Smith, 2021"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 606.791
-margin_top = 291.284
-margin_right = 1886.79
-margin_bottom = 1251.28
-rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -199,4 +188,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 689.726
+margin_top = 286.526
+margin_right = 945.726
+margin_bottom = 542.526
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="How to Play" to="." method="_on_How_to_Play_pressed"]
+[connection signal="pressed" from="Artist Statement" to="." method="_on_Artist_Statement_pressed"]

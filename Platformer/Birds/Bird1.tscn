@@ -1,0 +1,67 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Birds/Bird1.gd" type="Script" id=1]
+[ext_resource path="res://Enemy/EnemySprites/idle.png" type="Texture" id=2]
+[ext_resource path="res://Enemy/EnemySprites/walk5.png" type="Texture" id=3]
+[ext_resource path="res://Enemy/EnemySprites/walk12.png" type="Texture" id=4]
+[ext_resource path="res://Enemy/EnemySprites/walk2.png" type="Texture" id=5]
+[ext_resource path="res://Enemy/EnemySprites/walk3.png" type="Texture" id=6]
+[ext_resource path="res://Enemy/EnemySprites/walk4.png" type="Texture" id=7]
+[ext_resource path="res://Enemy/EnemySprites/walk1.png" type="Texture" id=8]
+[ext_resource path="res://Enemy/EnemySprites/walk8.png" type="Texture" id=9]
+[ext_resource path="res://Enemy/EnemySprites/walk7.png" type="Texture" id=10]
+[ext_resource path="res://Enemy/EnemySprites/walk6.png" type="Texture" id=11]
+[ext_resource path="res://Enemy/EnemySprites/walk9.png" type="Texture" id=12]
+[ext_resource path="res://Enemy/EnemySprites/walk11.png" type="Texture" id=13]
+[ext_resource path="res://Enemy/EnemySprites/walk10.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.6667
+height = 46.5751
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 11.7103
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+[node name="Bird1" type="KinematicBody2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "walk"
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -23.8379, 9.00543 )
+rotation = -0.948055
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -49.0002, -18.4082 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( -24.2352, 17.0838 )
+rotation = 0.364516
+shape = SubResource( 4 )
+
+[node name="ground_check" type="RayCast2D" parent="."]
+position = Vector2( -66.8786, -22.3812 )
+enabled = true

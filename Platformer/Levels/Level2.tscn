@@ -1,12 +1,20 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player2/Player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/Level1/Ground/Ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Background/skybg.png" type="Texture" id=3]
 [ext_resource path="res://Environment/Level1/Ground/GroundLeft.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Collectible.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Birds/Bird1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Fonts/OpenSansCondensed-Light.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Environment/Level1/Ground/GroundLeft1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Environment/Level1/Ground/GroundLeft2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Environment/Level1/Assets/Tree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Environment/Level1/Assets/Tree2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Environment/Level1/Assets/TreeEnd.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Environment/Level1/Assets/bush.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Environment/Level1/Assets/TreeBack.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Environment/Level1/Assets/bushsmall.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 655.981, 10 )
@@ -19,20 +27,34 @@ font_data = ExtResource( 7 )
 
 [node name="Level2" type="Node2D"]
 
+[node name="TreesBack" type="Node2D" parent="."]
+
+[node name="Tree2" parent="TreesBack" instance=ExtResource( 14 )]
+position = Vector2( -262.656, 352.453 )
+
+[node name="Tree3" parent="TreesBack" instance=ExtResource( 14 )]
+position = Vector2( -651.028, 381.637 )
+
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2( 0, 260.509 )
+
+[node name="GroundLeft" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( -568.742, 138.575 )
+collision_layer = 2
+collision_mask = 17
 
 [node name="Ground" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 711.156, 137.237 )
 collision_layer = 2
 collision_mask = 17
 
-[node name="GroundLeft" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( -566.854, 133.491 )
+[node name="GroundLeft1" parent="Ground" instance=ExtResource( 8 )]
+position = Vector2( -1845.81, 253.656 )
 collision_layer = 2
 collision_mask = 17
 
-[node name="Player2" parent="." instance=ExtResource( 1 )]
+[node name="GroundLeft2" parent="Ground" instance=ExtResource( 9 )]
+position = Vector2( -3124.77, 254.271 )
 
 [node name="fallzone" type="Area2D" parent="."]
 position = Vector2( 0, 87.3901 )
@@ -61,6 +83,70 @@ texture = ExtResource( 3 )
 centered = false
 flip_v = true
 
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource( 10 )]
+position = Vector2( 414.724, 374.514 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="bush" parent="Trees" instance=ExtResource( 13 )]
+position = Vector2( -625.083, 406.834 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="Tree2" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -45.1898, 368.654 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="Tree3" parent="Trees" instance=ExtResource( 11 )]
+position = Vector2( -463.577, 393.984 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="bush2" parent="Trees" instance=ExtResource( 13 )]
+position = Vector2( -1146.34, 381.407 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="Tree4" parent="Trees" instance=ExtResource( 10 )]
+position = Vector2( -872.68, 342.241 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="TreeEnd" parent="Trees" instance=ExtResource( 12 )]
+position = Vector2( -1585.8, 352.796 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="bush3" parent="Trees" instance=ExtResource( 13 )]
+position = Vector2( -1555.29, 411.072 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="bush4" parent="Trees" instance=ExtResource( 15 )]
+position = Vector2( -1074.13, 496.478 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="bush5" parent="Trees" instance=ExtResource( 15 )]
+position = Vector2( 192.55, 522.906 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="bush7" parent="Trees" instance=ExtResource( 15 )]
+position = Vector2( -2252.08, 468.162 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="bush8" parent="Trees" instance=ExtResource( 15 )]
+position = Vector2( -1468.67, 498.366 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+
 [node name="Collectible" type="Node2D" parent="."]
 position = Vector2( 600.038, 104.84 )
 
@@ -79,13 +165,26 @@ position = Vector2( -814.016, 381.287 )
 [node name="Collectible5" parent="Collectible" instance=ExtResource( 5 )]
 position = Vector2( -563.7, 381.287 )
 
+[node name="Collectible6" parent="Collectible" instance=ExtResource( 5 )]
+position = Vector2( -343.266, 411.072 )
+
+[node name="Collectible7" parent="Collectible" instance=ExtResource( 5 )]
+position = Vector2( -1750.75, 376.721 )
+
+[node name="Collectible8" parent="Collectible" instance=ExtResource( 5 )]
+position = Vector2( -1984.52, 393.539 )
+
+[node name="Collectible9" parent="Collectible" instance=ExtResource( 5 )]
+position = Vector2( -2647.81, 404.44 )
+
+[node name="Collectible10" parent="Collectible" instance=ExtResource( 5 )]
+position = Vector2( -3113.98, 406.96 )
+
+[node name="Collectible11" parent="Collectible" instance=ExtResource( 5 )]
+position = Vector2( -3562.51, 399.4 )
+
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2( 0, 85.4298 )
-
-[node name="Enemy" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( -908.44, 146.451 )
-collision_layer = 16
-collision_mask = 3
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -108,3 +207,21 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Birds" type="Node2D" parent="."]
+
+[node name="Bird1" parent="Birds" instance=ExtResource( 6 )]
+position = Vector2( -163.316, 480.957 )
+collision_mask = 3
+
+[node name="Bird2" parent="Birds" instance=ExtResource( 6 )]
+position = Vector2( 464.386, 567.268 )
+collision_mask = 3
+
+[node name="Bird3" parent="Birds" instance=ExtResource( 6 )]
+position = Vector2( -781.528, 496.478 )
+collision_mask = 3
+
+[node name="Bird4" parent="Birds" instance=ExtResource( 6 )]
+position = Vector2( -1837.72, 513.468 )
+collision_mask = 3
