@@ -36,9 +36,8 @@ margin_bottom = 720.0
 custom_fonts/font = SubResource( 1 )
 text = "How to Play:
 
-1. Collect feathers for those who like collecting.
-2. Avoid the enemy following you if you like being chased.
-3. Keep walking and enjoy the landscape."
+It's just a simple walk with your bird friend.
+Collect the feathers too if you would like."
 align = 1
 valign = 1
 __meta__ = {

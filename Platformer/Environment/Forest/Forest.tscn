@@ -1,0 +1,229 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Environment/Forest/GroundSprites/ground0.png" type="Texture" id=1]
+[ext_resource path="res://Environment/Forest/BackgroundSprites/background0.png" type="Texture" id=2]
+[ext_resource path="res://Environment/Forest/GroundSprites/ground1.png" type="Texture" id=3]
+[ext_resource path="res://Environment/Forest/BackgroundSprites/background1.png" type="Texture" id=4]
+[ext_resource path="res://Environment/Forest/Assets/bush3.png" type="Texture" id=5]
+[ext_resource path="res://Environment/Forest/Assets/bush2.png" type="Texture" id=6]
+[ext_resource path="res://Environment/Forest/Assets/bush1.png" type="Texture" id=7]
+[ext_resource path="res://Environment/Forest/Assets/boulders.png" type="Texture" id=8]
+[ext_resource path="res://Environment/Forest/GroundSprites/cliff.png" type="Texture" id=9]
+[ext_resource path="res://Environment/Forest/BackgroundSprites/cliffbg.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 342.167, 39.6469 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 346.408, 33.0397 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 286.499, 33.0397 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 66.7306, 33.0397 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 384.023, 21.7044 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 63.7502, 39.636 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 202.312, 44.0392 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 263.555, 79.4291 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 217.391, 59.5359 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 234.58, 48.9419 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 431.666, 45.4122 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 63.6587, 38.2735 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 56.5117, 51.7665 )
+
+[node name="Forest" type="Node2D"]
+
+[node name="Background0" type="TextureRect" parent="."]
+margin_left = -639.979
+margin_top = -480.275
+margin_right = 640.021
+margin_bottom = 479.725
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ground0" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite" type="Sprite" parent="Ground0"]
+texture = ExtResource( 1 )
+normal_map = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground0"]
+position = Vector2( -297.32, 288.826 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground0"]
+position = Vector2( -303.928, 247.295 )
+rotation = 0.103927
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground0"]
+position = Vector2( -358.672, 203.877 )
+rotation = 0.119897
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground0"]
+position = Vector2( -27.3723, 255.79 )
+rotation = 0.290715
+shape = SubResource( 4 )
+
+[node name="Background1" type="TextureRect" parent="."]
+margin_left = -1918.92
+margin_top = -479.128
+margin_right = -638.923
+margin_bottom = 480.872
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CliffBg" type="TextureRect" parent="."]
+margin_left = -3198.75
+margin_top = -477.367
+margin_right = -1918.75
+margin_bottom = 482.633
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bush1" type="Sprite" parent="."]
+position = Vector2( -2199.58, -72.5462 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="Cliff" type="StaticBody2D" parent="."]
+position = Vector2( 1.12378, 0 )
+collision_layer = 2
+
+[node name="Sprite" type="Sprite" parent="Cliff"]
+position = Vector2( -2558.66, -3.5636 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cliff"]
+position = Vector2( -2810.85, -403.751 )
+rotation = 0.0249292
+shape = SubResource( 8 )
+one_way_collision = true
+
+[node name="boulders" type="Sprite" parent="Cliff"]
+position = Vector2( -2560.55, -7.19147 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cliff"]
+position = Vector2( -2200.27, 236.487 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cliff"]
+position = Vector2( -2469.4, 57.4462 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Cliff"]
+position = Vector2( -2686.27, 309.591 )
+shape = SubResource( 13 )
+
+[node name="boulders" type="Sprite" parent="."]
+position = Vector2( -1842.11, -147.193 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="BackBush" type="Node2D" parent="."]
+
+[node name="bush5" type="Sprite" parent="BackBush"]
+position = Vector2( -1384.28, -28.6658 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="bush2" type="Sprite" parent="BackBush"]
+position = Vector2( -1730.7, -56.752 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 6 )
+
+[node name="bush3" type="Sprite" parent="BackBush"]
+position = Vector2( -1684.1, -2.75966 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="bush4" type="Sprite" parent="BackBush"]
+position = Vector2( -821.194, -112.679 )
+scale = Vector2( 2, 3 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="bush1" type="Sprite" parent="BackBush"]
+position = Vector2( -1120.77, -23.9036 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Ground1" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite" type="Sprite" parent="Ground1"]
+position = Vector2( -1277.83, -0.631409 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
+position = Vector2( -857.565, 198.819 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground1"]
+position = Vector2( -1285.86, 252.01 )
+rotation = -0.289729
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground1"]
+position = Vector2( -1920.67, 430.697 )
+shape = SubResource( 7 )
+
+[node name="boulders" type="Sprite" parent="Ground1"]
+position = Vector2( -2563.43, -3.18701 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground1"]
+position = Vector2( -2619.83, -138.13 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Ground1"]
+position = Vector2( -2812.26, -188.342 )
+shape = SubResource( 12 )
+
+[node name="ForeBush" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ForeBush"]
+position = Vector2( -661.628, 305.112 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="bush2" type="Sprite" parent="ForeBush"]
+position = Vector2( -1161.28, 349.317 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+
+[node name="bush6" type="Sprite" parent="."]
+position = Vector2( -1919.13, -35.9819 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )

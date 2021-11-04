@@ -51,14 +51,13 @@ func _physics_process(delta):
 
 	velocity.y += GRAVITY
 
-	velocity = move_and_slide(velocity, Vector2.UP,true)
-
+	velocity = move_and_slide(velocity,Vector2.UP,true)
 	velocity.x = lerp(velocity.x, 0,0.1)
 	
 	
 	
 func _on_Area2D_area_entered(area):
-	get_tree().change_scene("res://Scenes/Level1.tscn")
+	get_tree().change_scene("res://Scenes/Level2.tscn")
 	pass # Replace with function body.
 
 
@@ -81,3 +80,7 @@ func _on_AnimatedSprite_frame_changed():
 		velocity.y += jump
 		#print(3)
 	
+
+
+func _on_fallzone_body_entered(body):
+	pass # Replace with function body.
