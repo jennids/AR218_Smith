@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://FirstPersonPlayer/Player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,8 @@ material = ExtResource( 3 )
 
 [sub_resource type="SpatialMaterial" id=8]
 albedo_texture = ExtResource( 5 )
+
+[sub_resource type="CubeMesh" id=9]
 
 [node name="Level0" type="Spatial"]
 
@@ -81,3 +83,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1468, -0.277582, -18.2315 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03245, 34.0803, -1.30101 )
 mesh = SubResource( 7 )
 material/0 = SubResource( 8 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( 51.8524, 0, 0, 0, 27.7296, 0, 0, 0, 1, -0.0803757, 26.2275, -50.5352 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="."]
+transform = Transform( -0.140276, 0, 0.999996, 0, 27.7296, 0, -51.8523, 0, -0.00270529, -51.0912, 26.2275, -1.26693 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="MeshInstance7" type="MeshInstance" parent="."]
+transform = Transform( -75.1139, -1.75585e-06, 6.31671e-08, 3.28332e-06, -0.0974502, 1.4486, 4.48579e-06, -55.0139, -0.00481302, -11.6578, 54.425, -0.227646 )
+mesh = SubResource( 9 )
+material/0 = null
