@@ -1,19 +1,19 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
-[ext_resource path="res://Scenes/Temple/Temple.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Scenes/Temple/Temple.tscn" type="PackedScene" id=2]
 [ext_resource path="res://FirstPersonPlayer/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Carpet/Carpet.glb" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Grass/Ground'.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/trees/tree1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/trees/tree3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/fountain/fountain.glb" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/rocks/rocks.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/bushes/bush2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/bushes/bush3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/rocks/rock2.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/trees/tr1.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/fence/fence.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Scenes/Carpet/Carpet.glb" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Scenes/Grass/Ground'.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Scenes/trees/tree1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Scenes/trees/tree3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Scenes/fountain/fountain.glb" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Scenes/rocks/rocks.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/Scenes/bushes/bush2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/Scenes/bushes/bush3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Scenes/rocks/rock2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/Scenes/trees/tr1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Levels/Scenes/fence/fence.tscn" type="PackedScene" id=14]
 
 [node name="Spatial" type="Spatial"]
 
@@ -28,6 +28,7 @@ shadow_enabled = true
 
 [node name="FirstPersonPlayer" parent="." instance=ExtResource( 3 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1, -14 )
+visible = false
 
 [node name="temple" type="Spatial" parent="."]
 
@@ -82,7 +83,7 @@ transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -62 )
 
 [node name="tr2" parent="trees" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -94, 0, 58 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 63 )
 
 [node name="rocks" type="Spatial" parent="."]
 
