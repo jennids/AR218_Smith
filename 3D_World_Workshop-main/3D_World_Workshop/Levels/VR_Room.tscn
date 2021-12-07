@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Levels/Scenes/Temple/Temple.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Levels/Scenes/rocks/rock2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Levels/Scenes/trees/tr1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Levels/Scenes/fence/fence.tscn" type="PackedScene" id=14]
+[ext_resource path="res://gong.tscn" type="PackedScene" id=15]
 
 [node name="Spatial" type="Spatial"]
 
@@ -38,6 +39,9 @@ visible = false
 
 [node name="fountain" parent="temple" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 24 )
+
+[node name="gong" parent="temple" instance=ExtResource( 15 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -6, 2, -28 )
 
 [node name="Ground" type="Spatial" parent="."]
 
