@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Outside.wav-c6e3b227331ba2a46ddec32774ea61a1.sample"
+
+[deps]
+
+source_file="res://sound/Outside.wav"
+dest_files=[ "res://.import/Outside.wav-c6e3b227331ba2a46ddec32774ea61a1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

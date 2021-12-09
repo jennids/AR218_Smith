@@ -49,13 +49,20 @@ func _physics_process (delta):
 	# movement inputs
 	if Input.is_action_pressed("move_forward"):
 		input.y -= 1
+		$walk.pitch_scale = rand_range(0.8, 1.2)
+		$walk.play()
 	if Input.is_action_pressed("move_backward"):
 		input.y += 1
+		$walk.pitch_scale = rand_range(0.8, 1.2)
+		$walk.play()
 	if Input.is_action_pressed("move_left"):
 		input.x -= 1
+		$walk.pitch_scale = rand_range(0.8, 1.2)
+		$walk.play()
 	if Input.is_action_pressed("move_right"):
 		input.x += 1
-	 
+		$walk.pitch_scale = rand_range(0.8, 1.2)
+		$walk.play()
 	# normalize the input so we can't move faster diagonally
 	input = input.normalized()
 	
